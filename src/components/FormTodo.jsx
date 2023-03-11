@@ -27,9 +27,11 @@ const FormTodo = ({ form, setForm, resetForm, setIsChanged, activeHeader, indexT
                     localStorage.setItem('todo', JSON.stringify(todos))
                 } else {
                     const todos = JSON.parse(localStorage.getItem('todo'))
-                    form.id = todos.length + 1
+                    let lastData = todos[todos.length - 1];
+                    form.id = parseInt(lastData.id) + 1
                     form.isChecklist = false
                     todos.push(form)
+
                     localStorage.setItem('todo', JSON.stringify(todos))
                 }
                 
