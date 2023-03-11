@@ -11,7 +11,12 @@ const ListTodo = ({todo, index, handleChangeCb, setIsChanged, isChanged, listTod
             const todos = JSON.parse(localStorage.getItem('todo'))
             todos.splice(index, 1);
 
-            localStorage.setItem('todo', JSON.stringify(todos))
+            if(todos.length === 0) {
+                localStorage.removeItem('todo')
+            } else {
+                localStorage.setItem('todo', JSON.stringify(todos))
+            }
+            
             setIsChanged(!isChanged)
         }
         
