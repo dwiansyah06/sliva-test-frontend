@@ -6,11 +6,15 @@ import { HiOutlineTrash, HiOutlinePencilAlt } from "react-icons/hi";
 const ListTodo = ({todo, index, handleChangeCb, setIsChanged, isChanged, listTodos, setIndexTodo, setForm, setShowAlert, setActiveHeader}) => {
 
     const deleteTodo = (index) => {
-        const todos = JSON.parse(localStorage.getItem('todo'))
-        todos.splice(index, 1);
+        var result = window.confirm("Want to delete?");
+        if (result) {
+            const todos = JSON.parse(localStorage.getItem('todo'))
+            todos.splice(index, 1);
 
-        localStorage.setItem('todo', JSON.stringify(todos))
-        setIsChanged(!isChanged)
+            localStorage.setItem('todo', JSON.stringify(todos))
+            setIsChanged(!isChanged)
+        }
+        
     }
 
     const showTodo = (id, index) => {

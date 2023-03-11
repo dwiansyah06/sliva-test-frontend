@@ -18,7 +18,7 @@ const FormTodo = ({ form, setForm, resetForm, setIsChanged, activeHeader, indexT
             setErrorSave(true)
             setShowAlert(true)
         } else {
-            if(activeHeader == 'addtodo') {
+            if(activeHeader === 'addtodo') {
                 if(localStorage.getItem('todo') == null) {
                     let todos = []
                     form.id = 1
